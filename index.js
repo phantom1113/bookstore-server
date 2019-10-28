@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 //DB config
-const db = config.get('mongoURL');
+//const db = config.get('mongoURL');
 
 //Connect to MongoDb
 mongoose
