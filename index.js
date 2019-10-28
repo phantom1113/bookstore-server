@@ -20,7 +20,7 @@ const db = config.get('mongoURL');
 
 //Connect to MongoDb
 mongoose
-    .connect(db||process.env.mongoURL,{
+    .connect(process.env.mongoURL,{
         useNewUrlParser:true,
         useCreateIndex: true
     })
