@@ -7,7 +7,7 @@ const Books = require('./routes/api/books');
 const Users = require('./routes/api/users');
 const Auth = require('./routes/api/auth');
 const middleware = require('./middleware/auth');
-
+require('dotenv').config()
 
 
 const app = express();
@@ -20,7 +20,7 @@ const db = config.get('mongoURL');
 
 //Connect to MongoDb
 mongoose
-    .connect(db,{
+    .connect(db||process.env.mongoURL,{
         useNewUrlParser:true,
         useCreateIndex: true
     })
