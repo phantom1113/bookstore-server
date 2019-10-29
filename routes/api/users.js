@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const config = require('config');
+//const config = require('config');
 const jwt = require('jsonwebtoken');
 const uniqueString = require('unique-string');
 const middleware = require('../../middleware/auth');
 
+require('dotenv').config()
 //User Model
 const User = require('../../models/user');
 
@@ -40,7 +41,7 @@ router.post('/', (req, res) => {
 
                             jwt.sign(
                                 { id: user._id },
-                                config.get('jwtSecret'),
+                                process.env.jwtSecret,
                                 { expiresIn: 3600 },
                                 (err, token) => {
                                     if (err) throw err;
