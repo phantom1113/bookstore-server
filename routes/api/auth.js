@@ -26,10 +26,10 @@ router.post('/', (req, res) => {
             bcrypt.compare(password, user.password)
             .then(isMatch => {
                 if(!isMatch) return res.status(400).json({msg: 'Password is wrong !!!'})
-                console.log(process.env.jwtSecretjwtSecret);
+                console.log(process.env.jwtSecret);
                 jwt.sign(
                     { id: user._id },
-                    process.env.jwtSecretjwtSecret,
+                    process.env.jwtSecret,
                     { expiresIn: 3600 },
                     (err, token) => {
                         if (err) throw err;
