@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const config = require('config');
+//const config = require('config');
 const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
 
+require('dotenv').config()
 //User Model
 const User = require('../../models/user');
 
@@ -27,7 +28,7 @@ router.post('/', (req, res) => {
                 if(!isMatch) return res.status(400).json({msg: 'Password is wrong !!!'})
                 jwt.sign(
                     { id: user._id },
-                    config.get('jwtSecret'),
+                    process.env.jwtSecretjwtSecret,
                     { expiresIn: 3600 },
                     (err, token) => {
                         if (err) throw err;
