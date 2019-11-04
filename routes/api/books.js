@@ -30,6 +30,7 @@ router.get('/search', (req,res) => {
 
 router.get('/pagination', (req,res) => {
     //let filter = {};
+    console.log(req.query);
     let {category, page} = req.query;
     //let page = parseInt(req.query.page) || 1;
     //filter.category = req.query.category
@@ -41,7 +42,6 @@ router.get('/pagination', (req,res) => {
     Book.find({category: req.query.category})
     .sort()
     .then( items => {
-        console.log(items);
         res.json(items.slice(start,end))
     })
     .catch(err => console.log(err));
