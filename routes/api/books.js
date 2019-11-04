@@ -38,11 +38,9 @@ router.get('/:id', (req,res) => {
 
 router.get('/pagenumber', (req,res) => {
     let filter = {};
-    //let page = parseInt(req.query.page) || 1;
-    filter.category = req.query.category
-    //let perPage = 8;
-    //let start = (page - 1) * perPage;
-    //let end = page * perPage;
+    if(req.query.category !== ''){
+        filter.category = req.query.category
+    }
     Book.find(filter)
     .sort()
     .then( items => {
