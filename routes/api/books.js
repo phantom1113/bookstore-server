@@ -29,20 +29,17 @@ router.get('/search', (req,res) => {
 });
 
 router.get('/pagination', (req,res) => {
-    //let filter = {};
-    
-    let {category, page} = req.query;
-    //let page = parseInt(req.query.page) || 1;
-    //filter.category = req.query.category
-    console.log(req.query[page]);
+    let filter = {};
+    let page = parseInt(req.query.page) || 1;
+    filter.category = req.query.category
     let perPage = 1;
     let start = (page - 1) * perPage;
     let end = page * perPage;
-    console.log(category);
-    console.log(page);
-    Book.find({category: req.query.category})
+    console.log(req.query.category,page);
+    Book.find({filter})
     .sort()
     .then( items => {
+        console.log(items);
         res.json(items.slice(start,end))
     })
     .catch(err => console.log(err));
