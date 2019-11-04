@@ -30,7 +30,7 @@ router.get('/search', (req,res) => {
 
 router.get('/pagination', (req,res) => {
     //let filter = {};
-    console.log(req.query);
+    console.log(req.query[page]);
     let {category, page} = req.query;
     //let page = parseInt(req.query.page) || 1;
     //filter.category = req.query.category
