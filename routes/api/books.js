@@ -36,4 +36,19 @@ router.get('/:id', (req,res) => {
     .catch(err => console.log(err));
 });
 
+router.get('/pagination', (req,res) => {
+    let filter = {};
+    let page = parseInt(req.query.page);
+    filter.category = req.query.category
+    let perPage = 8;
+    let start = (page - 1) * perPage;
+    let end = page * perPage;
+    Book.find(filter)
+    .sort()
+    .then( items => {
+        res.json(items.slice(start,end))
+    })
+    .catch(err => console.log(err));
+});
+
 module.exports = router;
