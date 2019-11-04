@@ -38,15 +38,15 @@ router.get('/:id', (req,res) => {
 
 router.get('/pagination', (req,res) => {
     let filter = {};
-    let page = parseInt(req.query.page) || 1;
+    //let page = parseInt(req.query.page) || 1;
     filter.category = req.query.category
-    let perPage = 8;
-    let start = (page - 1) * perPage;
-    let end = page * perPage;
+    //let perPage = 8;
+    //let start = (page - 1) * perPage;
+    //let end = page * perPage;
     Book.find(filter)
     .sort()
     .then( items => {
-        res.json(items.slice(start,end))
+        res.json(items)
     })
     .catch(err => console.log(err));
 });
