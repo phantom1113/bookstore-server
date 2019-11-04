@@ -28,7 +28,7 @@ router.get('/search', (req,res) => {
     .catch(err => console.log(err));
 });
 
-router.get('/pagination?:category&:page', (req,res) => {
+router.get('/pagination', (req,res) => {
     //let filter = {};
     let page = parseInt(req.query.page) || 1;
     //filter.category = req.query.category
