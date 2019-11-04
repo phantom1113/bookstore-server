@@ -36,12 +36,8 @@ router.get('/:id', (req,res) => {
     .catch(err => console.log(err));
 });
 
-router.get('/pagenumber', (req,res) => {
-    let filter = {};
-    if(req.query.category !== ''){
-        filter.category = req.query.category
-    }
-    Book.find(filter)
+router.get('/pageproduct', (req,res) => {
+    Book.find()
     .sort()
     .then( items => {
         res.json(items)
