@@ -29,14 +29,14 @@ router.get('/search', (req,res) => {
 });
 
 router.get('/pagination', (req,res) => {
-    let filter = {};
+    //let filter = {};
     let page = parseInt(req.query.page) || 1;
-    filter.category = req.query.category
+    //filter.category = req.query.category
     let perPage = 8;
     let start = (page - 1) * perPage;
     let end = page * perPage;
-    console.log(filter,page);
-    Book.find(filter)
+    console.log(req.query.category,page);
+    Book.find({category: req.query.category})
     .sort()
     .then( items => {
         console.log(items);
