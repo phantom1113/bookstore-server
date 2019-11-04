@@ -32,7 +32,7 @@ router.get('/pagination', (req,res) => {
     //let filter = {};
     let page = parseInt(req.query.page) || 1;
     //filter.category = req.query.category
-    let perPage = 8;
+    let perPage = 1;
     let start = (page - 1) * perPage;
     let end = page * perPage;
     console.log(req.query.category,page);
