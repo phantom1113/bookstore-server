@@ -37,7 +37,7 @@ router.get('/:id', (req,res) => {
 });
 
 router.get('/pageproduct', (req,res) => {
-    Book.find()
+    Book.find({})
     .sort()
     .then( items => {
         res.json(items)
