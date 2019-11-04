@@ -35,7 +35,7 @@ router.get('/pagination', (req,res) => {
     let perPage = 1;
     let start = (page - 1) * perPage;
     let end = page * perPage;
-    console.log(req.query.category,page);
+    console.log(req.query.category,req.query.page);
     Book.find({category: req.query.category})
     .sort()
     .then( items => {
