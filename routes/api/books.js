@@ -28,17 +28,17 @@ router.get('/search', (req,res) => {
     .catch(err => console.log(err));
 });
 
-router.get('/:id', (req,res) => {
-    Book.findById(req.params.id)
+router.get('/pageproduct', (req,res) => {
+    Book.find({})
+    .sort()
     .then( items => {
         res.json(items)
     })
     .catch(err => console.log(err));
 });
 
-router.get('/pageproduct', (req,res) => {
-    Book.find({})
-    .sort()
+router.get('/:id', (req,res) => {
+    Book.findById(req.params.id)
     .then( items => {
         res.json(items)
     })
