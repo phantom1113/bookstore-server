@@ -30,10 +30,11 @@ router.get('/search', (req,res) => {
 
 router.get('/pagination', (req,res) => {
     //let filter = {};
-    console.log(req.query[page]);
+    
     let {category, page} = req.query;
     //let page = parseInt(req.query.page) || 1;
     //filter.category = req.query.category
+    console.log(req.query[page]);
     let perPage = 1;
     let start = (page - 1) * perPage;
     let end = page * perPage;
