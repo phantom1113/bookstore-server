@@ -35,9 +35,11 @@ router.get('/pagination', (req,res) => {
     let perPage = 8;
     let start = (page - 1) * perPage;
     let end = page * perPage;
+    console.log(filter,page);
     Book.find(filter)
     .sort()
     .then( items => {
+        console.log(items);
         res.json(items.slice(start,end))
     })
     .catch(err => console.log(err));
