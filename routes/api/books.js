@@ -38,7 +38,7 @@ router.get('/pagination', (req,res) => {
     Book.find(filter)
     .sort()
     .then( items => {
-        console.log(items);
+        console.log(items.length);
         res.json({
             total :  Math.ceil(items.length/perPage),
             currentpage: page,
