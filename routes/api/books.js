@@ -42,7 +42,7 @@ router.get('/pagination', (req,res) => {
         res.json({
             total :  Math.ceil(items.length/perPage),
             currentpage: page,
-            perpage: perpage,
+            perPage: perPage,
             item:items.slice(start,end)
         })
     })
